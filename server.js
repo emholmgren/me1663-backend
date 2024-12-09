@@ -1,10 +1,14 @@
 // Imports
+require('dotenv').config();
+
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 
 const app = express(); // Create Express app
 app.use(cors()); // Enable integration with React application
+
+const PORT = process.env.PORT || 5000; // Använd miljövariabeln PORT om den finns, annars 5000
 
 // Endpoint to fetch weather data
 app.get("/api/weather", async (req, res) => {
@@ -65,5 +69,10 @@ app.get('/api/geocode', async (req, res) => {
 });
 
 // Start server
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Servern kör på port ${PORT}`));
+//const PORT = 5000;
+// app.listen(PORT, () => console.log(`Servern kör på port ${PORT}`));
+
+// Starta servern
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });

@@ -1,1 +1,5 @@
+# Ignore frontend files
 client/
+
+# Ignore .env files
+.env
